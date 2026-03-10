@@ -1,0 +1,24 @@
+# -----------------------------
+# Minimal .htaccess for cPanel
+# -----------------------------
+
+RewriteEngine On
+
+# Allow existing files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Generic pretty URLs → file.php
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [L]
+
+# API routes (optional if you want separate handling)
+RewriteRule ^enrol/?$ apis/enrol.php [L]
+RewriteRule ^course/?$ apis/course.php [L]
+RewriteRule ^contact/?$ apis/contact.php [L]
+
+# Custom 404 page
+ErrorDocument 404 /404.php
+
+# Disable directory browsing
+Options -Indexes
