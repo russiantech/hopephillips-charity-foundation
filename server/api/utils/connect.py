@@ -9,6 +9,7 @@ DB_HOST = 'localhost'
 DB_PORT = '5432'
 
 def get_db_connection(db_name=DB_NAME):
+    
     conn = psycopg2.connect(
         dbname=db_name,
         user=DB_USER,

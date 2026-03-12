@@ -783,15 +783,27 @@ async function verifyPayment(reference) {
 
             setTimeout(() => {
 
-                const modalEl = document.getElementById('donationModal');
+                // const modalEl = document.getElementById('donationModal');
 
-                let modal = bootstrap.Modal.getInstance(modalEl);
+                // let modal = bootstrap.Modal.getInstance(modalEl);
 
-                if (!modal) {
-                    modal = new bootstrap.Modal(modalEl);
-                }
+                // if (!modal) {
+                //     modal = new bootstrap.Modal(modalEl);
+                // }
 
-                modal.hide();
+                // modal.hide();
+
+                // v2
+                // const modalEl = document.getElementById('donationModal');
+
+                // const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+
+                // modal.hide();
+
+                // v3
+                document.getElementById("donationModal").classList.remove("show");
+                document.querySelector(".modal-backdrop")?.remove();
+                document.body.classList.remove("modal-open");
 
                 resetForm();
 
