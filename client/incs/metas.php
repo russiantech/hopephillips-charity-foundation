@@ -10,7 +10,7 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
     : "http://";
 
 $base_url = $is_local 
-    ? $protocol . "localhost/codes/hopephillipscharityfoundation/"
+    ? $protocol . "localhost/hopephillips_charity/"
     : $protocol . "hopephillipscharityfoundation.com/";
 ?>
 

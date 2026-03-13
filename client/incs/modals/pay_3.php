@@ -175,6 +175,7 @@
 <script src="https://js.paystack.co/v1/inline.js"></script>
 
 <script>
+
 (function () {
   'use strict';
 
@@ -471,27 +472,16 @@
      MODAL HELPERS
   ═══════════════════════════════════════════════════════════ */
   function closeModal() {
-    // Bootstrap 5 — has Modal.getOrCreateInstance
-    if (window.bootstrap?.Modal?.getOrCreateInstance) {
-      bootstrap.Modal.getOrCreateInstance(modalEl).hide();
-      return;
+    // Prefer Bootstrap's own API when available, fall back to manual teardown
+    if (window.bootstrap?.Modal) {
+      const instance = bootstrap.Modal.getOrCreateInstance(modalEl);
+      instance.hide();
+    } else {
+      modalEl.classList.remove('show');
+      document.querySelector('.modal-backdrop')?.remove();
+      document.body.classList.remove('modal-open');
+      document.body.style.removeProperty('padding-right');
     }
-
-    // Bootstrap 4 — uses jQuery plugin: $(el).modal('hide')
-    if (window.jQuery) {
-      jQuery(modalEl).modal('hide');
-      return;
-    }
-
-    // Hard fallback — manually tear down the modal DOM state
-    modalEl.classList.remove('show');
-    modalEl.style.display = 'none';
-    modalEl.removeAttribute('aria-modal');
-    modalEl.setAttribute('aria-hidden', 'true');
-    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-    document.body.classList.remove('modal-open');
-    document.body.style.removeProperty('padding-right');
-    document.body.style.removeProperty('overflow');
   }
 
   function resetForm() {
@@ -520,4 +510,3 @@
 
 })();
 </script>
-
