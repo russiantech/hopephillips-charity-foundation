@@ -28,7 +28,7 @@ $base_url = $is_local
     <link rel="stylesheet" href="<?php echo $base_url; ?>css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="<?php echo $base_url; ?>fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="<?php echo $base_url; ?>fonts/flaticon-1/font/flaticon.css">
     <link rel="stylesheet" href="<?php echo $base_url; ?>css/aos.css">
 
     <!-- MAIN CSS -->
